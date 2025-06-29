@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  wescriptor:
+    build: .
+    ports:
+      - "8000:8000"
+    environment:
+      - WHISPER_MODEL=base
+    volumes:
+      - whisper-cache:/root/.cache/whisper
+    restart: unless-stopped
+
+volumes:
+  whisper-cache:
